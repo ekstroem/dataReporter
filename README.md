@@ -1,5 +1,6 @@
-# reporteR <img src="man/figures/logo.png" width="121px" height="140px" align="right" style="padding-left:10px;background-color:white;" />
+# reporteR 
 
+<!---<img src="man/figures/logo.png" width="121px" height="140px" align="right" style="padding-left:10px;background-color:white;" />--->
 
 [![Travis-CI Build
 Status](https://travis-ci.org/ekstroem/reporteR.svg?branch=master)](https://travis-ci.org/ekstroem/reporteR)
@@ -95,7 +96,7 @@ summarize(toyData$events, summaries = setSummaries(all =  c("centralValue", "min
 You can read the main paper accompanying the package at the [Journal
 of Statistical
 Software](https://www.jstatsoft.org/article/view/v090i06). It provides
-a detailed introduction to the reporteR package.
+a detailed introduction to the reporteR package (original launched under the name `dataMaid`).
 
 We also have two blog posts that provide an introduction to the package. The can be found [here (the primary one)](https://sandsynligvis.dk/2017/08/21/datamaid-your-personal-assistant-for-cleaning-up-the-data-cleaning-process/) and [here](https://sandsynligvis.dk/2018/03/03/generating-codebooks-in-r/).
 
@@ -111,7 +112,7 @@ vignette("extending_reporteR")
 
 
 
-## Online app
+<!---## Online app
 
 We are currently working on an online version of the tool, where users
 can upload their data and get a report. A prototype
@@ -122,3 +123,4 @@ Until we have set it up online, you can try it out on your own machine:
 library(shiny)
 runUrl("https://github.com/ekstroem/reporteR/raw/master/app/app.zip")
 ``` 
+--->
