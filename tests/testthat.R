@@ -1,4 +1,4 @@
 library(testthat)
-library(reporteR)
+library(dataReporter)
 
 test_check("dataReporter")

@@ -94,7 +94,7 @@ centralValueCF <- function(v) {
 
 #labelled variables
 centralValueL <- function(v) {
-  centralValueB(na.omit(reporteR_as_factor(v)))
+  centralValueB(na.omit(dataReporter_as_factor(v)))
 }
 
 #integer and numeric variables

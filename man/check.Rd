@@ -43,7 +43,7 @@ are returned by calling e.g. \code{defaultCharacterChecks()},
 \code{defaultFactorChecks()}, \code{defaultNumericChecks()}, etc. A complete 
 overview of all default options can be obtained by calling \code{setChecks()}. 
 Moreover, all available \code{checkFunction}s (including both locally defined
-functions and functions imported from \code{reporteR} or other packages) can
+functions and functions imported from \code{dataReporter} or other packages) can
 be viewed by calling \code{allCheckFunctions()}.
 }
 \examples{

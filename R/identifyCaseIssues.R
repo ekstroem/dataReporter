@@ -80,5 +80,5 @@ identifyCaseIssuesF <- function(v, nMax) {
 
 #labelled variable
 identifyCaseIssuesL <- function(v, nMax) {
-  identifyCaseIssuesF(reporteR_as_factor(v), nMax)
+  identifyCaseIssuesF(dataReporter_as_factor(v), nMax)
 }

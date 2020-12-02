@@ -87,7 +87,7 @@ identifyLonersC <- function(v, nMax) {
 }
 
 identifyLonersL <- function(v, nMax) {
-    v <- reporteR_as_factor(v)
+    v <- dataReporter_as_factor(v)
     identifyLonersF(v, nMax)
 }
 

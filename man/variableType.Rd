@@ -29,7 +29,7 @@ original class of a variable. This is just the class for all objects but those o
    variableType(varX)
 
  #For smartNum variables:
-   smartX <- reporteR:::smartNum(varX)
+   smartX <- dataReporter:::smartNum(varX)
    class(smartX)
    variableType(smartX)
 

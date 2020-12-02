@@ -10,6 +10,6 @@ x <- factor(LETTERS[c(4,4,1,2,1,3,2,4,2, 4,4,1,2,1,3,2,4,2, 4,4,1,2,1,3,2,4,2)+1
                                        
 ## Each type should result in a list
 test_that("isLoner returns the right values", {
-    expect_equal(reporteR::identifyLoners(x)$problemValues, "D")
+    expect_equal(dataReporter::identifyLoners(x)$problemValues, "D")
 })
 

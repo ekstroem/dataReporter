@@ -83,7 +83,7 @@ identifyWhitespaceF <- function(v, nMax) {
 
 #labelled variables
 identifyWhitespaceL <- function(v, nMax) {
-  v <- na.omit(reporteR_as_factor(v))
+  v <- na.omit(dataReporter_as_factor(v))
   identifyWhitespaceF(v, nMax = nMax)
 }
 

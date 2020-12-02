@@ -50,10 +50,10 @@ standardVisual.character <- function(v, vnam, doEval = TRUE) standardVisualCFLB(
 standardVisual.factor <- function(v, vnam, doEval = TRUE) standardVisualCFLB(v, vnam, doEval=doEval)
 
 #' @export
-standardVisual.labelled <- function(v, vnam, doEval = TRUE) standardVisualCFLB(reporteR_as_factor(v), 
+standardVisual.labelled <- function(v, vnam, doEval = TRUE) standardVisualCFLB(dataReporter_as_factor(v), 
                                                                                vnam, doEval=doEval)
 #' @export
-standardVisual.haven_labelled <- function(v, vnam, doEval = TRUE) standardVisualCFLB(reporteR_as_factor(v), 
+standardVisual.haven_labelled <- function(v, vnam, doEval = TRUE) standardVisualCFLB(dataReporter_as_factor(v), 
                                                                                vnam, doEval=doEval)
 
 #' @export

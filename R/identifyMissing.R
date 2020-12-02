@@ -208,7 +208,7 @@ identifyMissingCF <- function(v, nMax) {
 
 #labelled variables
 identifyMissingL <- function(v, nMax) {
-  v <- na.omit(reporteR_as_factor(v))
+  v <- na.omit(dataReporter_as_factor(v))
   identifyMissingCF(v, nMax = nMax)
 }
 

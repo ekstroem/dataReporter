@@ -77,6 +77,6 @@ uniqueValuesN <- function(v) {
 }
 
 uniqueValuesL <- function(v) {
-  uniqueValuesCFBI(reporteR_as_factor(v))
+  uniqueValuesCFBI(dataReporter_as_factor(v))
 }
 

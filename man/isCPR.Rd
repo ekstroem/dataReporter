@@ -23,12 +23,13 @@ otherwise "") and \code{$problemValues} (always \code{NULL}).
 A \code{\link{checkFunction}} that checks if \code{v} consists exclusively
 of valid Danish civil registration (CPR) numbers, ignoring missing values. This
 function is intended for use as a precheck in \code{\link{makeDataReport}}, ensuring
-that CPR numbers are not included in a \code{reporteR} output document.
+that CPR numbers are not included in a \code{dataReporter} output document.
 }
 \examples{
 CPRs <-  sapply(c("01011988", "02011987", "04052006", "01021990", "01021991",
                   "01021993", "01021994", "01021995", "01021996", "01021997",
-                  "01021970", "01021971", "01021972", "01021973", "01021974"), reporteR:::makeCPR)
+                  "01021970", "01021971", "01021972", "01021973", "01021974"),
+                dataReporter:::makeCPR)
 nonCPRs <- c(1:10)
 mixedCPRs <- c(CPRs, nonCPRs)
 

@@ -21,7 +21,7 @@ attribute of \code{f} will be an empty character string. If
 \code{f} is a S3 generic function, an automatic look-up
 for methods will be conducted, and the \code{classes} attribute
 will then be filled out automatically. Note that the function
-\code{\link{allClasses}} (listing all classes used in \code{reporteR})
+\code{\link{allClasses}} (listing all classes used in \code{dataReporter})
 might be useful.}
 }
 \value{

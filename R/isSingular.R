@@ -28,7 +28,7 @@
 isSingular <- function(v) {
   lV <- length(v)
   
-  if (any(c("labelled", "haven_labelled") %in% class(v))) v <- reporteR_as_factor(v) #otherwise na.omit does not work
+  if (any(c("labelled", "haven_labelled") %in% class(v))) v <- dataReporter_as_factor(v) #otherwise na.omit does not work
   
   v <- na.omit(v)
   pctMiss <- round(100*(lV - length(v))/lV, 2)

@@ -37,7 +37,7 @@ Helper function for producing output messages for
 }
 \details{
 This function is a tool for building \code{\link{checkFunction}}s for the
-\code{reporteR} \code{\link{makeDataReport}} function. \code{checkFunction}s will often identify a number
+\code{dataReporter} \code{\link{makeDataReport}} function. \code{checkFunction}s will often identify a number
 of values in a variable that are somehow problematic. \code{messageGenerator} takes
 these values, pastes them together with a problem description and makes sure that the
 formatting is appropriate for being rendered in a \code{rmarkdown} document.

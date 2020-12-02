@@ -28,6 +28,8 @@ Imports:
 Suggests:
     knitr,
     testthat
+Depends:
+    R (>= 3.5.0)
 VignetteBuilder: knitr
 SystemRequirements: pandoc (>= 2.0; https://pandoc.org), git, whoami
 Encoding: UTF-8
@@ -56,6 +58,8 @@ Collate:
     'minMax.R'
     'classes.R'
     'countMissing.R'
+    'dataReporter-package.R'
+    'dataReporter_as_factor.R'
     'description.R'
     'identifyCaseIssues.R'
     'identifyLoners.R'
@@ -74,8 +78,6 @@ Collate:
     'quartiles.R'
     'refCat.R'
     'render.R'
-    'dataReporter-package.R'
-    'dataReporter_as_factor.R'
     'setChecks.R'
     'setSummaries.R'
     'setVisuals.R'

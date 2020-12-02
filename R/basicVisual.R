@@ -49,11 +49,11 @@ basicVisual.character <- function(v, vnam, doEval = TRUE) basicVisualCFLB(v, vna
 basicVisual.factor <- function(v, vnam, doEval = TRUE) basicVisualCFLB(v, vnam, doEval=doEval)
 
 #' @export
-basicVisual.labelled <- function(v, vnam, doEval = TRUE) basicVisualCFLB(reporteR_as_factor(v), 
+basicVisual.labelled <- function(v, vnam, doEval = TRUE) basicVisualCFLB(dataReporter_as_factor(v), 
                                                                          vnam, doEval=doEval)
 
 #' @export
-basicVisual.haven_labelled <- function(v, vnam, doEval = TRUE) basicVisualCFLB(reporteR_as_factor(v), 
+basicVisual.haven_labelled <- function(v, vnam, doEval = TRUE) basicVisualCFLB(dataReporter_as_factor(v), 
                                                                          vnam, doEval=doEval)
 
 #' @export
