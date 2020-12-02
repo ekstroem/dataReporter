@@ -29,7 +29,7 @@ A data frame with 47 rows and 15 variables.
 }
 \source{
 Artificial dataset constructed based on the US president dataset available from 
-\href{https://www.data-explorer.com/data}{Data Explorer}.
+\href{https://www.data-explorer.com/data/}{Data Explorer}.
 }
 \usage{
 bigPresidentData

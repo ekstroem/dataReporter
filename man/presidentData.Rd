@@ -25,7 +25,7 @@ A data frame with 46 rows and 11 variables.
 }
 \source{
 Artificial dataset constructed based on the US president dataset available from 
-\href{https://www.data-explorer.com/data}{Data Explorer}.
+\href{https://www.data-explorer.com/data/}{Data Explorer}.
 }
 \usage{
 presidentData
