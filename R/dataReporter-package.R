@@ -2,10 +2,10 @@
 #'
 #' A dataset with information about the first 45 US presidents as well as a 46th
 #' person, who is not a US president. The dataset was constructed to show the capabilities
-#' of \code{reporteR} and therefore, it has been constructed to include errors and miscodings.
+#' of \code{dataReporter} and therefore, it has been constructed to include errors and miscodings.
 #' Each observation in the dataset corresponds to a person. The dataset uses the 
 #' non-standard class \code{Name} which is simply an attribute that has been added to 
-#' two variables in order to show how \code{reporteR} handles non-supported classes. 
+#' two variables in order to show how \code{dataReporter} handles non-supported classes. 
 #'
 #' @format A data frame with 46 rows and 11 variables.
 #' \describe{
@@ -38,10 +38,10 @@
 #' A dataset with information about the first 45 US presidents as well as a 46th
 #' person, who is not a US president, and a duplicate of one of the 45 actual presidents. 
 #' The dataset was constructed to show the capabilities
-#' of \code{reporteR} and therefore, it has been constructed to include errors and miscodings.
+#' of \code{dataReporter} and therefore, it has been constructed to include errors and miscodings.
 #' Each observation in the dataset corresponds to a person. The dataset uses the 
 #' non-standard class \code{Name} which is simply an attribute that has been added to 
-#' two variables in order to show how \code{reporteR} handles non-supported classes. Note that the dataset
+#' two variables in order to show how \code{dataReporter} handles non-supported classes. Note that the dataset
 #' is an extended and more error-filled version of the dataset \code{presidentData} which is 
 #' also included in the package. 
 #'
@@ -105,9 +105,9 @@
 "artData"
 
 
-#' Extended example data to test the features of reporteR
+#' Extended example data to test the features of dataReporter
 #'
-#' A dataset of constructed data used as test bed when using \code{reporteR} for identifying
+#' A dataset of constructed data used as test bed when using \code{dataReporter} for identifying
 #' potential errors in a dataset.
 #'
 #' @format A data frame with 15 rows and 14 variables.
@@ -139,9 +139,9 @@
 "testData"
 
 
-#' Small example data to show the features of reporteR
+#' Small example data to show the features of dataReporter
 #'
-#' An artificial dataset, intended for presenting the key features of \code{reporteR}, which is a
+#' An artificial dataset, intended for presenting the key features of \code{dataReporter}, which is a
 #' toolset for identifying potential errors in a dataset.
 #'
 #' @format A \code{data.frame} with 15 rows and 6 variables.
@@ -169,7 +169,7 @@
 
 #' Example data with zero-inflated variables
 #'
-#' An artificial dataset, intended for presenting the extended features of \code{reporteR},
+#' An artificial dataset, intended for presenting the extended features of \code{dataReporter},
 #' which is a toolset for identifying potential errors in a dataset.
 #'
 #' @format A \code{data.frame} with 300 observations on the following 6 variables.

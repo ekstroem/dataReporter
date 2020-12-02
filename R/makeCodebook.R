@@ -67,7 +67,7 @@ makeCodebook <- function(data, vol="", reportTitle=NULL, file=NULL, ...) {
     Call$smartNum <- ifelse(is.null(Call[["smartNum"]]), FALSE, Call[["smartNum"]])
 
 
-    Call[[1]] <- quote(reporteR::makeDataReport)
+    Call[[1]] <- quote(dataReporter::makeDataReport)
     eval.parent(Call)
 
     
@@ -105,7 +105,7 @@ showAllFactorLevels <- function(v, ...) {
     ## into a problem status object that can be passed to 
         ## the messageGenerator() helper function that will
     ## make sure the outputted message is properly escaped
-    ## for inclusion in the reporteR report
+    ## for inclusion in the dataReporter report
     problemStatus <- list(problem = problem, 
                           problemValues = problemValues)
     outMessage <- messageGenerator(problemStatus, problemMessage, ...)

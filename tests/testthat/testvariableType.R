@@ -1,6 +1,6 @@
 context("summary function: variableType")
 
-library(reporteR)
+library(dataReporter)
 
 
 ## Read atomic vectors

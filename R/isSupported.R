@@ -1,7 +1,7 @@
-#' @title Check if a variable has a class supported by reporteR
+#' @title Check if a variable has a class supported by dataReporter
 #' 
 #' @description A \code{\link{checkFunction}} that checks if \code{v} has 
-#' one of the classes supported by reporteR, namely \code{character},
+#' one of the classes supported by dataReporter, namely \code{character},
 #' \code{factor}, \code{numeric}, \code{integer}, \code{labelled},
 #' \code{haven_labelled},
 #' \code{logical} and \code{Date} (inlcuding other classes that inherits
@@ -40,7 +40,7 @@ isSupported <- function(v) {
   }
   out$problem <- TRUE
   out$message <- paste("The variable has class", vClasses[1],
-                       "which is not supported by reporteR.")
+                       "which is not supported by dataReporter.")
   checkResult(out)
 }
 
@@ -48,6 +48,6 @@ isSupported <- function(v) {
 #make it a checkFunction
 #' @include allClasses.R allClasses.R
 isSupported <- checkFunction(isSupported, 
-                         "Check if the variable class is supported by reporteR.", 
+                         "Check if the variable class is supported by dataReporter.", 
                          allClasses())
 

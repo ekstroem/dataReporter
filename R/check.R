@@ -46,7 +46,7 @@
 #' \code{defaultFactorChecks()}, \code{defaultNumericChecks()}, etc. A complete 
 #' overview of all default options can be obtained by calling \code{setChecks()}. 
 #' Moreover, all available \code{checkFunction}s (including both locally defined
-#' functions and functions imported from \code{reporteR} or other packages) can
+#' functions and functions imported from \code{dataReporter} or other packages) can
 #' be viewed by calling \code{allCheckFunctions()}.
 #'
 #' @references Petersen AH, Ekstrøm CT (2019). “dataMaid: Your Assistant for Documenting Supervised Data Quality Screening in R.” _Journal of Statistical Software_, *90*(6), 1-38. doi: 10.18637/jss.v090.i06 ( \url{https://doi.org/10.18637/jss.v090.i06}).
@@ -96,7 +96,7 @@ check <- function(v, nMax = 10, checks = setChecks(), ...) UseMethod("check")
 check.default <- function(v, nMax = 10, checks = setChecks(), ...) {
   vClass <- class(v)[1]
   warning(paste("A variable of class", vClass, 
-                "was supplied. This is not supported by reporteR.",
+                "was supplied. This is not supported by dataReporter.",
                 "No checks were performed."))
   list(NoChecksPerformed = checkResult(list(problem = FALSE,
                                             message = "",

@@ -2,7 +2,6 @@
 #checkFunction). If classes is null, and fName is a S3 generic,
 #the function will make a look-up for all methods available in the
 #global enviroment and fill out the slot accordingly.
-#Note: This does not work for functions defined wihtin reporteR. As
 #of now, they must have their classes specified explicitly!
 #' @importFrom utils methods
 makeXFunction <- function(fName, description, classes, X)  {
@@ -11,7 +10,7 @@ makeXFunction <- function(fName, description, classes, X)  {
   } else {
     f <- get(fName)
   }
-   #note: default pos (-1) will look in reporteR namespace first
+   #note: default pos (-1) will look in dataReporter namespace first
    #when called interactively. This results in weird behaviour when
    #users try to overwrite our functions.
 

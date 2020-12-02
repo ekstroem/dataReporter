@@ -3,7 +3,7 @@
 #' @description A \code{\link{checkFunction}} that checks if \code{v} consists exclusively
 #' of valid Danish civil registration (CPR) numbers, ignoring missing values. This
 #' function is intended for use as a precheck in \code{\link{makeDataReport}}, ensuring
-#' that CPR numbers are not included in a \code{reporteR} output document.
+#' that CPR numbers are not included in a \code{dataReporter} output document.
 #'
 #' @param v A variable (vector) to check. This variable is allowed to have any class.
 #'
@@ -19,7 +19,7 @@
 #' @examples
 #' CPRs <-  sapply(c("01011988", "02011987", "04052006", "01021990", "01021991",
 #'                   "01021993", "01021994", "01021995", "01021996", "01021997",
-#'                   "01021970", "01021971", "01021972", "01021973", "01021974"), reporteR:::makeCPR)
+#'                   "01021970", "01021971", "01021972", "01021973", "01021974"), dataReporter:::makeCPR)
 #' nonCPRs <- c(1:10)
 #' mixedCPRs <- c(CPRs, nonCPRs)
 #'
@@ -42,7 +42,7 @@ isCPR <- function(v, ...) { #Note: Implementation works until the year 2036...
   out <- list(problem=FALSE, message="", problemValues = NULL)
   m <- "Warning: The variable seems to consist of Danish civil regristration (CPR) numbers."
   
-  if (any(c("labelled", "haven_labelled") %in% class(v))) v <- reporteR_as_factor(v)
+  if (any(c("labelled", "haven_labelled") %in% class(v))) v <- dataReporter_as_factor(v)
   
   v <- as.character(na.omit(v))
   if (length(v) == 0) return(checkResult(out)) #if v consists only of NAs

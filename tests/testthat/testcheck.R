@@ -1,6 +1,6 @@
-context("reporteR check")
+context("dataReporter check")
 
-library(reporteR)
+library(dataReporter)
 library(haven)
 
 Sys.setenv(TZ="Europe/Copenhagen")

@@ -328,7 +328,7 @@ summarize.default <- function(v, reportstyleOutput = FALSE, summaries = setSumma
                               ...) {
   vClass <- class(v)[1]
   warning(paste("A variable of class", vClass, 
-                "was supplied. This is not supported by reporteR.",
+                "was supplied. This is not supported by dataReporter.",
                 "No summaries were made."))
   res <- list(summaryResult(list(feature = "No summaries available", result = "-")))
   if (reportstyleOutput) {

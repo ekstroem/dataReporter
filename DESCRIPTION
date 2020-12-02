@@ -1,4 +1,4 @@
-Package: reporteR
+Package: dataReporter
 Type: Package
 Title: A Suite of Checks for Identification of Potential Errors in a Data Frame
     as Part of the Data Screening Process
@@ -7,12 +7,12 @@ Date: 2020-12-01
 Authors@R: c(person(given="Anne Helby", family="Petersen", email="ahpe@sund.ku.dk", role=c("aut")),
              person(given="Claus Thorn", family="Ekstrøm", email="ekstrom@sund.ku.dk", role=c("aut", "cre")))
 Description: Data screening is an important first step of any statistical
-    analysis. reporteR auto generates a customizable data report with a thorough
+    analysis. dataReporter auto generates a customizable data report with a thorough
     summary of the checks and the results that a human can use to identify possible
     errors. It provides an extendable suite of test for common potential
     errors in a dataset. 
-URL: https://github.com/ekstroem/reporteR, https://doi.org/10.18637/jss.v090.i06
-BugReports: https://github.com/ekstroem/reporteR/issues    
+URL: https://github.com/ekstroem/dataReporter, https://doi.org/10.18637/jss.v090.i06
+BugReports: https://github.com/ekstroem/dataReporter/issues    
 Imports:
     ggplot2,
     gridExtra,
@@ -74,8 +74,8 @@ Collate:
     'quartiles.R'
     'refCat.R'
     'render.R'
-    'reporteR-package.R'
-    'reporteR_as_factor.R'
+    'dataReporter-package.R'
+    'dataReporter_as_factor.R'
     'setChecks.R'
     'setSummaries.R'
     'setVisuals.R'

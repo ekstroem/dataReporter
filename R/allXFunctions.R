@@ -4,7 +4,7 @@
 #Called from allVisualFunction(), allSummaryFunctions(), allCheckFunctions().
 allXFunctions <- function(X) {
   allF <- Filter(function(x) X %in% class(get(x)), union(ls(envir = .GlobalEnv),
-                                                         ls("package:reporteR")))
+                                                         ls("package:dataReporter")))
   out <- list(name = allF, description = sapply(allF, function(x) description(get(x))),
               classes = lapply(allF, function(x) classes(get(x))))
   class(out) <- c("functionSummary", "list")

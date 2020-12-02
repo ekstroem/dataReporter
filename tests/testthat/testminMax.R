@@ -1,6 +1,6 @@
 context("summary function: minMax")
 
-library(reporteR)
+library(dataReporter)
 
 
 ## Read atomic vectors

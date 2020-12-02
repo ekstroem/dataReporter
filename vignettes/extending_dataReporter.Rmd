@@ -1,31 +1,31 @@
 ---
-title: "Extending reporteR"
+title: "Extending dataReporter"
 author: "Anne Helby Petersen and Claus Thorn Ekstrøm"
 date: "July 3, 2020"
 output: 
   rmarkdown::html_vignette:
     toc: true
 vignette: >
-  %\VignetteIndexEntry{Extending reporteR}
+  %\VignetteIndexEntry{Extending dataReporter}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
-library(reporteR)
+library(dataReporter)
 Sys.setenv(TZ="Europe/Copenhagen")  ## Set time zone to prevent warnings
 Sys.getenv("TZ")
 ```
 
 ## Introduction
-The data documentation tools available in `reporteR` allows for it to be utilized as an easy-to-use, self-contained package, as outlined in our [article](https://www.jstatsoft.org/article/view/v090i06). However, this does *not* imply that `reporteR` is not customizable: `reporteR` was specifically built for including user-made extensions and this vignette is a tutorial into how one can write simple extensions that can be used in e.g. the `makeDataReport()` function from `reporteR`. 
+The data documentation tools available in `dataReporter` allows for it to be utilized as an easy-to-use, self-contained package, as outlined in our [article](https://www.jstatsoft.org/article/view/v090i06). However, this does *not* imply that `dataReporter` is not customizable: `dataReporter` was specifically built for including user-made extensions and this vignette is a tutorial into how one can write simple extensions that can be used in e.g. the `makeDataReport()` function from `dataReporter`. 
 
 ### Three steps of data documentation
-In order to understand how different parts of the report creation can be customized, we will briefly dwell on the structure of the data reports made by `reporteR`. Aside from a few pages dedicated to gaining an overview of the full dataset and what was done to document its current state, the report sequentially presents information for each variable. More specifically, each variable is presented with one of the two sets of information:
+In order to understand how different parts of the report creation can be customized, we will briefly dwell on the structure of the data reports made by `dataReporter`. Aside from a few pages dedicated to gaining an overview of the full dataset and what was done to document its current state, the report sequentially presents information for each variable. More specifically, each variable is presented with one of the two sets of information:
 
 1. The result of a single eligibility check (referred to as a *pre-check* below)
-2. The results of the three canonical `reporteR` steps:
+2. The results of the three canonical `dataReporter` steps:
     + Summarize: Produces a summary table
     + Visualize: Produces a distribution visualization
     + Check: Performs and lists the results of a number of checks
@@ -34,9 +34,9 @@ The first option will be used for variables that do not pass the initial pre-che
 
 * `isKey`: Check if the variable is a key, i.e. categorical with unique values for each observation 
 * `isSingular`: Check if the variable only takes a single (non-`NA`) value
-* `isSupported`: Check if the class of the variable is among the classes supported by `reporteR`
+* `isSupported`: Check if the class of the variable is among the classes supported by `dataReporter`
 
-If any of these checks finds a problem, the relevant problem will be mentioned in the report and the variable will not be exposed to further documentation steps. If the pre-checks do not flag a variable, on the other hand, the variable will be subjected to the three SVC (summarize, visualize, check) steps mentioned above. In the SVC-steps, `makeDataReport()` calls a number of so-called `summaryFunctions`, `visualFunctions` and `checkFunctions`, with different choices of functions depending on the class of the variable. The customizability features of `reporteR` essentially comes down to writing such `summaryFunctions`, `visualFunctions` and `checkFunctions`. 
+If any of these checks finds a problem, the relevant problem will be mentioned in the report and the variable will not be exposed to further documentation steps. If the pre-checks do not flag a variable, on the other hand, the variable will be subjected to the three SVC (summarize, visualize, check) steps mentioned above. In the SVC-steps, `makeDataReport()` calls a number of so-called `summaryFunctions`, `visualFunctions` and `checkFunctions`, with different choices of functions depending on the class of the variable. The customizability features of `dataReporter` essentially comes down to writing such `summaryFunctions`, `visualFunctions` and `checkFunctions`. 
 
 This vignette consists of three parts. First, we describe how new
 `summaryFunction`s, `visualFunction`s and
@@ -44,7 +44,7 @@ This vignette consists of three parts. First, we describe how new
 turn to a worked example of how to write custom made functions in
 practice. Here, we define and showcase six new SVC functions. Lastly, a built-in dataset about art masterpieces, `artData`, is documented using the custom-made functions and the thereby obtained data report is included.
 
-In this vignette, we focus on the report creation tools of `reporteR`. However, it should be emphasized that by following the guidelines presented here, the user-defined `summaryFunctions`, `visualFunctions` and `checkFunctions` will also be fully integrated with the interactive mode of `reporteR`. 
+In this vignette, we focus on the report creation tools of `dataReporter`. However, it should be emphasized that by following the guidelines presented here, the user-defined `summaryFunctions`, `visualFunctions` and `checkFunctions` will also be fully integrated with the interactive mode of `dataReporter`. 
 
 
 
@@ -55,9 +55,9 @@ different levels of strictness. If
 the new custom function is only to be used as part of the SVC steps in `makeDataReport()`,
 then only the input/output structure of the function needs special attention.
 However, new user-defined functions can also be registered locally to
-be part of the full machinery of `reporteR`, and when this is done, the functions will
+be part of the full machinery of `dataReporter`, and when this is done, the functions will
 be recognized and behave in the same way as the built-in functions in
-`reporteR`. The presentation below is given in the format of
+`dataReporter`. The presentation below is given in the format of
 function templates, written in pseudo-code. These templates are
 designed for getting the full functionality, but note that
 the table below serves as a reference to the minimal
@@ -79,7 +79,7 @@ This table summarizes the minimal and recommended structures for summary-, visua
 
 
 ### Writing a summaryFunction
-As mentioned above, `reporteR` provides a dedicated class for
+As mentioned above, `dataReporter` provides a dedicated class for
 `summaryFunction`s. However, this does not imply that they are
 particularly advanced or complicated to create; in fact, they are
 nothing but regular functions with a particular
@@ -134,7 +134,7 @@ called. If `mySummaryFunction()` is not an `S3` generic and
 `classes` is left unspecified, the attribute will simply be left
 empty. Note that the helper function `allClasses()` might be
 useful for filling out the `classes` argument, as it simply lists
-all supported classes in `reporteR`:
+all supported classes in `dataReporter`:
 
 ```{r allClasses}
 allClasses()
@@ -143,7 +143,7 @@ allClasses()
 
 ### Writing a visualFunction
 `visualFunction`s are the functions that produce the figures in a
-`reporteR` output document. Writing a `visualFunction` is slightly
+`dataReporter` output document. Writing a `visualFunction` is slightly
 more complicated than writing a `summaryFunction`. This is due to
 the fact that `visualFunction`s need to be able to output standalone
 code for plots in order for `makeDataReport()` to build standalone
@@ -190,7 +190,7 @@ call, just like the two build-in `visualFunctions`, `standardVisual`
 and `basicVisual`.
 
 ### Writing a checkFunction
-The last, but perhaps most important, `reporteR` function type is
+The last, but perhaps most important, `dataReporter` function type is
 the `checkFunction`. These are the functions that flag issues in
 the data in the *check* step and/or control the overall flow of the data
 documenting process in the pre-check stage. A `checkFunction` follows
@@ -242,7 +242,7 @@ myProbValCheckFunction <- function(v, nMax, maxDecimals, ...) {
                         problemValues = problemValues)
 
   problemMessage <- "[Message that is printed prior to listing
-                     problem values in the reporteR output,
+                     problem values in the dataReporter output,
                      ending with a colon]"
 
   outMessage <- messageGenerator(problemStatus, problemMessage, nMax)
@@ -455,7 +455,7 @@ mosaicplot(table(x))
 ```
 
 As evident from the figure, a mosaic plot consists of several rectangles, one for each category in the data, and the area of each such rectangle is proportional to the proportion of the data that takes that value - much like a pie chart. We intend to use this function as part of a new visualization function.  We will define
-the new function such that it gets the full `reporteR`
+the new function such that it gets the full `dataReporter`
 functionality. This can be done using the following code which sets up
 the call using the existing function `mosaicplot()`.
 
@@ -496,7 +496,7 @@ mosaicVisual <- visualFunction(mosaicVisual,
 ```  
 
 Here, we use the function `allClasses()` to quickly obtain a vector
-of all the seven variable classes supported by `reporteR`, and we use `setdiff()` to choose all
+of all the seven variable classes supported by `dataReporter`, and we use `setdiff()` to choose all
 classes except the `numeric`, `integer` and `Date` classes, as the mosaic plot is most suited for categorical data. Note that if `mosaicVisual()` were an S3 generic function, this argument could
 have been left as `NULL` and then the classes for which methods are
 available would be added automatically by `visualFunction()`.
@@ -647,7 +647,7 @@ identifyColons <- function(v, nMax = Inf, ... ) {
   #into a problem status object that can be passed to 
   #the messageGenerator() helper function that will
   #make sure the outputted message is properly escaped
-  #for inclusion in the reporteR report
+  #for inclusion in the dataReporter report
   problemStatus <- list(problem = problem, 
                         problemValues = problemValues)
   outMessage <- messageGenerator(problemStatus, problemMessage, nMax)
@@ -770,10 +770,10 @@ makeDataReport(artData,
 
 We have chosen the output to be html (`output = "html"`) so that it can easily be included in this vignette by use of the `includeHTML()` function from the `htmltools` package. We have set `open = FALSE` so that the outputted html file is not opened automatically. The outputted report is available at the end of this vignette. 
 
-## A reporteR report with user-defined functions: Documenting artData
+## A dataReporter report with user-defined functions: Documenting artData
 
 We include the report documenting `artData` (this is only shown if `pandoc` is available to generate it):
 
 ```{r includeReport, eval=rmarkdown::pandoc_available()}
-htmltools::includeHTML("reporteR_artData.html")
+htmltools::includeHTML("dataReporter_artData.html")
 ```

@@ -1,6 +1,6 @@
 context("check function: isLoner")
 
-library("reporteR")
+library("dataReporter")
 
 
 ## Read atomic vectors

@@ -1,30 +1,30 @@
-# reporteR 
+# dataReporter 
 
 <!---<img src="man/figures/logo.png" width="121px" height="140px" align="right" style="padding-left:10px;background-color:white;" />--->
 
 [![Travis-CI Build
-Status](https://travis-ci.org/ekstroem/reporteR.svg?branch=master)](https://travis-ci.org/ekstroem/reporteR)
-[![CRAN\_Release\_Badge](http://www.r-pkg.org/badges/version-ago/reporteR)](https://CRAN.R-project.org/package=reporteR)
-![Download counter](http://cranlogs.r-pkg.org/badges/grand-total/reporteR)
+Status](https://travis-ci.org/ekstroem/dataReporter.svg?branch=master)](https://travis-ci.org/ekstroem/dataReporter)
+[![CRAN\_Release\_Badge](http://www.r-pkg.org/badges/version-ago/dataReporter)](https://CRAN.R-project.org/package=dataReporter)
+![Download counter](http://cranlogs.r-pkg.org/badges/grand-total/dataReporter)
 
 
-reporteR is an R package for documenting and creating reports on data cleanliness. 
+dataReporter is an R package for documenting and creating reports on data cleanliness. 
 
 
 ## Installation
 
-This github page contains the *development version* of reporteR. For the
+This github page contains the *development version* of dataReporter. For the
 latest stable version download the package from CRAN directly using
 
 ```{r}
-install.packages("reporteR")
+install.packages("dataReporter")
 ```
 
-To install the development version of reporteR run the following
+To install the development version of dataReporter run the following
 commands from within R (requires that the `devtools` package is already installed)
 
 ```{r}
-devtools::install_github("ekstroem/reporteR")
+devtools::install_github("ekstroem/dataReporter")
 ```
 
 ## Package overview
@@ -35,7 +35,7 @@ reports for the same data, then it may be necessary to add the `replace=TRUE`
 argument to overwrite the existing report). 
 
 ```{r}
-library("reporteR")
+library("dataReporter")
 data(trees)
 makeDataReport(trees)
 ```
@@ -46,9 +46,9 @@ you have have a [LaTeX](https://www.latex-project.org/) installation on your com
 is needed for creating pdf reports. 
 
 
-### Using reporteR interactively
+### Using dataReporter interactively
 
-The reporteR package can also be used interactively by running checks
+The dataReporter package can also be used interactively by running checks
 for the individual variables or for all variables in the dataset
 
 ```{r}
@@ -61,7 +61,7 @@ By default the standard battery of tests is run depending on the
 variable type. If we just want a specific test for, say, a numeric
 variable then we can specify that. All available checks can be viewed
 by calling `allCheckFunctions()`. See [the
-documentation](https://github.com/ekstroem/reporteR/blob/master/latex/article_vol2.pdf)
+documentation](https://github.com/ekstroem/dataReporter/blob/master/latex/article_vol2.pdf)
 for an overview of the checks available or how to create and include
 your own tests.
 
@@ -96,17 +96,17 @@ summarize(toyData$events, summaries = setSummaries(all =  c("centralValue", "min
 You can read the main paper accompanying the package at the [Journal
 of Statistical
 Software](https://www.jstatsoft.org/article/view/v090i06). It provides
-a detailed introduction to the reporteR package (original launched under the name `dataMaid`).
+a detailed introduction to the dataReporter package (original launched under the name `dataMaid`).
 
 We also have two blog posts that provide an introduction to the package. The can be found [here (the primary one)](https://sandsynligvis.dk/2017/08/21/datamaid-your-personal-assistant-for-cleaning-up-the-data-cleaning-process/) and [here](https://sandsynligvis.dk/2018/03/03/generating-codebooks-in-r/).
 
 Moreover, we have
-created a vignette that describes how to extend reporteR to include
+created a vignette that describes how to extend dataReporter to include
 user-defined data screening checks, summaries and visualizations. This
-vignette is called `extending_reporteR`:
+vignette is called `extending_dataReporter`:
 
 ```{r}
-vignette("extending_reporteR")
+vignette("extending_dataReporter")
 ```
 
 
@@ -121,6 +121,6 @@ is already up and running - we just need to configure the R server correctly.
 Until we have set it up online, you can try it out on your own machine:
 ```{r}
 library(shiny)
-runUrl("https://github.com/ekstroem/reporteR/raw/master/app/app.zip")
+runUrl("https://github.com/ekstroem/dataReporter/raw/master/app/app.zip")
 ``` 
 --->

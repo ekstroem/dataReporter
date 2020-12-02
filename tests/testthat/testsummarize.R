@@ -1,6 +1,6 @@
-context("reporteR summarize")
+context("dataReporter summarize")
 
-library(reporteR)
+library(dataReporter)
 library(haven)
                                        
 ## Define atomic types

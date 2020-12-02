@@ -1,7 +1,7 @@
-#' @title Vector of all variable classes in \code{reporteR}
+#' @title Vector of all variable classes in \code{dataReporter}
 #'
 #' @description Returns the names of the eight data classes for which
-#' \code{reporteR} is implemented, namely \code{"character"}, \code{"Date"},
+#' \code{dataReporter} is implemented, namely \code{"character"}, \code{"Date"},
 #' \code{"factor"}, \code{"integer"}, \code{"labelled"}, 
 #' \code{"haven_labelled"}, \code{"logical"} and
 #' \code{"numeric"}.
