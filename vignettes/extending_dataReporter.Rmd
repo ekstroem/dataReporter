@@ -702,7 +702,7 @@ call. We wish to produce a report that utilizes the newly defined functions in t
 * We want the new summary function, `meanSummary()`, to be used for `numeric`, `integer` and `logical` variables.
 * We want the new check function, `identifyColons()`, to be added to the checks performed on `character`, `factor` and `labelled` variables.
 
-We will make a data report for the built-in dataset `artData` that is based on the *Master Works of Art* data from [Data Explorer](http://www.data-explorer.com/data). The dataset contains 200 observations (corresponding to paintings) of 11 variables, describing different properties of the paintings and their artists. The first 5 observations look like this:
+We will make a data report for the built-in dataset `artData` that is based on the *Master Works of Art* data from [Data Explorer](https://www.data-explorer.com/data/). The dataset contains 200 observations (corresponding to paintings) of 11 variables, describing different properties of the paintings and their artists. The first 5 observations look like this:
 
 ```{r headArtData}
 data(artData)
