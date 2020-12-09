@@ -53,27 +53,23 @@
 #'   #Inspect all options for visualFunctions:
 #'   allVisualFunctions()
 #'
+#'   #set mosaicVisual for all variable types:
+#'   visualize(c("1", "1", "1", "2", "2", "a"), "My variable", 
+#'       visuals = setVisuals(all = "mosaicVisual"))
 #'
-#'  \dontrun{
-#'    #set mosaicVisual for all variable types:
-#'    visualize(c("1", "1", "1", "2", "2", "a"), "My variable", 
-#'        visuals = setVisuals(all = "mosaicVisual"))
+#'   #set mosaicVisual only for character variables:
+#'   visualize(c("1", "1", "1", "2", "2", "a"), "My variable", 
+#'      visuals = setVisuals(character = "mosaicVisual"))
 #'
-#'    #set mosaicVisual only for character variables:
-#'    visualize(c("1", "1", "1", "2", "2", "a"), "My variable", 
-#'       visuals = setVisuals(character = "mosaicVisual"))
-#'
-#'    #this will use standardVisual, as our variable is not numeric:
-#'    visualize(c("1", "1", "1", "2", "2", "a"), "My variable", 
-#'        visuals = setVisuals(numeric = "mosaicVisual"))
-#'  }
+#'   #this will use standardVisual, as our variable is not numeric:
+#'   visualize(c("1", "1", "1", "2", "2", "a"), "My variable", 
+#'       visuals = setVisuals(numeric = "mosaicVisual"))
 #'
 #'    #return code for a mosaic plot
 #'    visualize(c("1", "1", "1", "2", "2", "a"), "My variable", 
 #'        allVisuals = "mosaicVisual", doEval=FALSE)
 #'
-#'  \dontrun{
-#'  #Produce multiple plots easily by calling visualize on a full dataset:
+#'   #Produce multiple plots easily by calling visualize on a full dataset:
 #'    data(testData)
 #'    testData2 <- testData[, c("charVar", "factorVar", "numVar", "intVar")]
 #'    visualize(testData2)
@@ -85,7 +81,7 @@
 #'    
 #'  #But we can still use the "all" argument in setVisuals:
 #'    visualize(testData2, visuals =  setVisuals(all = "basicVisual"))
-#'  }
+#'  
 #'
 #'@seealso \code{\link{setVisuals}}, \code{\link{allVisualFunctions}},
 #'\code{\link{standardVisual}}, \code{\link{basicVisual}}

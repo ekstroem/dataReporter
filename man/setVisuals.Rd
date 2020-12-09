@@ -72,7 +72,7 @@ by calling \code{allVisualFunctions()}.
   setVisuals(all = "basicVisual")
      
 #Used in a call to makeDataReport():
-\dontrun{
+\donttest{
 data(toyData)
 makeDataReport(toyData, visuals = setVisuals(all = "basicVisual"), replace = TRUE)
 }

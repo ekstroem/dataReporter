@@ -31,9 +31,6 @@
 #'
 #'
 #' @examples
-#' ##data(testData)
-#' ##testData$miscodedMissingVar
-#' ##identifyMissing(testData$miscodedMissingVar)
 #'
 #' #Identify miscoded numeric missing values
 #' v1 <- c(1:15, 99)

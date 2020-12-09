@@ -1,17 +1,16 @@
 Package: dataReporter
 Type: Package
-Title: A Suite of Checks for Identification of Potential Errors in a Data Frame
-    as Part of the Data Screening Process
+Title: Reproducible Data Screening Checks and Report of Possible Errors
 Version: 1.0.0
-Date: 2020-12-01
+Date: 2020-12-03
 Authors@R: c(person(given="Anne Helby", family="Petersen", email="ahpe@sund.ku.dk", role=c("aut")),
              person(given="Claus Thorn", family="Ekstrøm", email="ekstrom@sund.ku.dk", role=c("aut", "cre")))
 Description: Data screening is an important first step of any statistical
-    analysis. dataReporter auto generates a customizable data report with a thorough
+    analysis. 'dataReporter' auto generates a customizable data report with a thorough
     summary of the checks and the results that a human can use to identify possible
     errors. It provides an extendable suite of test for common potential
-    errors in a dataset. 
-URL: https://github.com/ekstroem/dataReporter, https://doi.org/10.18637/jss.v090.i06
+    errors in a dataset. See Petersen AH, Ekstrøm CT (2019). "dataMaid: Your Assistant for Documenting Supervised Data Quality Screening in R." _Journal of Statistical Software_, *90*(6), 1-38 <doi:10.18637/jss.v090.i06> for more information.
+URL: https://github.com/ekstroem/dataReporter
 BugReports: https://github.com/ekstroem/dataReporter/issues    
 Imports:
     ggplot2,

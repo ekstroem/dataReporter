@@ -50,7 +50,7 @@
 #'   
 #'      
 #' #Used in a call to makeDataReport():
-#' \dontrun{
+#' \donttest{
 #' data(toyData)
 #' makeDataReport(toyData, 
 #'   setSummaries(numeric = defaultNumericSummaries(remove = "centralValue"),

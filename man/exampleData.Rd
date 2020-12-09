@@ -27,7 +27,6 @@ which is a toolset for identifying potential errors in a dataset.
 }
 \examples{
 
-\dontrun{
 isID <- function(v, nMax = NULL, ...) {
   out <- list(problem = FALSE, message = "")
   if (class(v) \%in\% c("character", "factor", "labelled", "numeric", "integer")) {
@@ -86,6 +85,8 @@ identifyColons <- function(v, nMax = Inf, ... ) {
 identifyColons <- checkFunction(identifyColons,
                                description = "Identify non-suffixed nor -prefixed colons",
                                classes = c("character", "factor", "labelled"))
+
+\donttest{
 makeDataReport(exampleData, replace = TRUE,
       preChecks = c("isKey", "isEmpty", "isID"),
       allVisuals = "mosaicVisual",

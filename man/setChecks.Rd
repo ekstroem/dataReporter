@@ -61,7 +61,7 @@ by calling \code{allCheckFunctions()}.
      labelled = "identifyMissing")
      
 #Used in a call to makeDataReport():
-\dontrun{
+\donttest{
 data(toyData)
 makeDataReport(toyData, checks = setChecks(character = "identifyMissing", 
    factor = "identifyMissing", labelled = "identifyMissing"), replace = TRUE)

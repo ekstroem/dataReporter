@@ -39,9 +39,6 @@ only recognized as miscoded missing if they are maximum or minimum, respectively
 between the second largest/smallest value and this maximum/minimum value is greater than one.
 }
 \examples{
-##data(testData)
-##testData$miscodedMissingVar
-##identifyMissing(testData$miscodedMissingVar)
 
 #Identify miscoded numeric missing values
 v1 <- c(1:15, 99)

@@ -185,7 +185,6 @@
 #' @source Artificial data
 #' @examples
 #'
-#' \dontrun{
 #' isID <- function(v, nMax = NULL, ...) {
 #'   out <- list(problem = FALSE, message = "")
 #'   if (class(v) %in% c("character", "factor", "labelled", "numeric", "integer")) {
@@ -244,6 +243,8 @@
 #' identifyColons <- checkFunction(identifyColons,
 #'                                description = "Identify non-suffixed nor -prefixed colons",
 #'                                classes = c("character", "factor", "labelled"))
+#'
+#' \donttest{
 #' makeDataReport(exampleData, replace = TRUE,
 #'       preChecks = c("isKey", "isEmpty", "isID"),
 #'       allVisuals = "mosaicVisual",

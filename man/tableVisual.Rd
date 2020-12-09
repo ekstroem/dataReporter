@@ -20,7 +20,7 @@ Note that \code{tableVisual} is a \code{\link{visualFunction}}, compatible with 
 \code{\link{visualize}} and \code{\link{makeDataReport}} functions.
 }
 \examples{
-\dontrun{
+
 #Save a variable
 myVar <- c("red", "blue", "red", "red", NA) 
 
@@ -29,7 +29,7 @@ tableVisual(myVar, "MyVar")
 
 #Produce code for plotting a variable
 tableVisual(myVar, "MyVar", doEval = FALSE)
-}
+
 }
 \seealso{
 \code{\link{visualize}}, \code{\link{basicVisual}}, \code{\link{standardVisual}}

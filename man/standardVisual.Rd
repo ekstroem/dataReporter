@@ -27,7 +27,7 @@ removed prior to plotting. For character, Date, factor, (haven_)labelled and log
 only \code{NA} values are removed.
 }
 \examples{
-\dontrun{
+
 #Save a variable
 myVar <- c(1:10) 
 
@@ -36,7 +36,7 @@ standardVisual(myVar, "MyVar")
 
 #Produce code for plotting a variable
 standardVisual(myVar, "MyVar", doEval = FALSE)
-}
+
 }
 \seealso{
 \code{\link{visualize}}, \code{\link{basicVisual}}

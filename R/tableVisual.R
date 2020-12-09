@@ -10,7 +10,7 @@
 #' a character string containing standalone R code for producing the table.
 #'
 #' @examples
-#' \dontrun{
+#' 
 #' #Save a variable
 #' myVar <- c("red", "blue", "red", "red", NA) 
 #' 
@@ -19,7 +19,7 @@
 #' 
 #' #Produce code for plotting a variable
 #' tableVisual(myVar, "MyVar", doEval = FALSE)
-#' }
+#' 
 #' @seealso \code{\link{visualize}}, \code{\link{basicVisual}}, \code{\link{standardVisual}}
 #'
 #' @importFrom pander pander

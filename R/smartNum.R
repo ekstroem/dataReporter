@@ -1,8 +1,16 @@
-#S3 class meant for representing numeric variables that act like 
-#factor variables by taking only a few different values. This class
-#is used in makeDataReport() in order to get appropriate summaries, visualizations
-#and checks for such variables. In other words, such variables will be
-#treated like factor variables instead of numerics.
+#' @title Smart class to handle numerics as factor
+#'
+#' @description S3 class meant for representing numeric variables that act like 
+#' factor variables by taking only a few different values. This class
+#' is used in makeDataReport() in order to get appropriate summaries, visualizations
+#' and checks for such variables. In other words, such variables will be
+#' treated like factor variables instead of numerics.
+#'
+#' @param v A numeric vector 
+#'
+#' @return A \code{smartNum} object that is handled in \code{makeDataReport} in the same way as a factor.
+#'
+#' @export
 smartNum <- function(v) {
     oriClass <- class(v)
     origLabel <- attr(v, "label")

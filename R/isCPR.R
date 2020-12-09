@@ -17,10 +17,10 @@
 #' otherwise "") and \code{$problemValues} (always \code{NULL}).
 #'
 #' @examples
-#' CPRs <-  sapply(c("01011988", "02011987", "04052006", "01021990", "01021991",
-#'                   "01021993", "01021994", "01021995", "01021996", "01021997",
-#'                   "01021970", "01021971", "01021972", "01021973", "01021974"),
-#'                 dataReporter:::makeCPR)
+#'
+#' CPRs <- c("010188-3639", "020187-1476", "040506-8664", "010290-3684", "010291-1180",
+#'           "010293-1599", "010294-1268", "010295-1360", "010296-3970", "010297-2007",
+#'           "010270-2905", "010271-0134", "010272-1403", "010273-3088", "010274-1633")
 #' nonCPRs <- c(1:10)
 #' mixedCPRs <- c(CPRs, nonCPRs)
 #'
@@ -109,45 +109,5 @@ isDanishDate <- function(strs) {
   if (any(ds > maxDs)) return(FALSE)
 
   TRUE
-}
-
-
-#Generate valid CPR number from birthday ("DDMMYYYY")
-makeCPR <- function(bday) {
-  day <- as.numeric(strsplit(substring(bday, 1, 2), "")[[1]])
-  month <- as.numeric(strsplit(substring(bday, 3, 4), "")[[1]])
-  year <- as.numeric(substring(bday, 5, 8))
-  mVec <- c(4, 3, 2, 7, 6, 5, 4, 3, 2)
-  if (year > 2007) {
-    f3d <- c(sample(4:9, 1), sample(0:9, 1), sample(0:9, 1))
-    out <- paste(c(day, month, as.numeric(strsplit(substr(year, 3, 4),"")[[1]]), f3d, 1), collapse="")
-  }
-  if (year <= 2007 & year >= 2000) {
-    done <- F
-    while(!done) {
-      f3d <- c(sample(4:9, 1), sample(0:9, 1), sample(0:9, 1))
-      outty <- mVec %*% c(day, month, as.numeric(strsplit(substr(year, 3, 4),"")[[1]]), f3d)
-      d10 <- outty %% 11
-      if (d10 != 1) {
-        out <- paste(c(day, month, as.numeric(strsplit(substr(year, 3, 4),"")[[1]]),
-                       "-", f3d, ifelse(d10==0, 0, 11-d10)), collapse="")
-        done <- T
-      }
-    }
-  }
-  if (year <= 1999 & year >= 1900) {
-    done <- F
-    while(!done) {
-      f3d <- c(sample(0:3, 1), sample(0:9, 1), sample(0:9, 1))
-      outty <- mVec %*% c(day, month, as.numeric(strsplit(substr(year, 3, 4),"")[[1]]), f3d)
-      d10 <- outty %% 11
-      if (d10 != 1) {
-        out <- paste(c(day, month, as.numeric(strsplit(substr(year, 3, 4),"")[[1]]),
-                       "-", f3d, ifelse(d10==0, 0, 11-d10)), collapse="")
-        done <- T
-      }
-    }
-  }
-  out
 }
 

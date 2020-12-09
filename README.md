@@ -61,7 +61,7 @@ By default the standard battery of tests is run depending on the
 variable type. If we just want a specific test for, say, a numeric
 variable then we can specify that. All available checks can be viewed
 by calling `allCheckFunctions()`. See [the
-documentation](https://github.com/ekstroem/dataReporter/blob/master/latex/article_vol2.pdf)
+documentation](https://www.jstatsoft.org/index.php/jss/article/view/v090i06/v90i06.pdf)
 for an overview of the checks available or how to create and include
 your own tests.
 

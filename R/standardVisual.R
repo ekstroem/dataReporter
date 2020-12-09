@@ -16,7 +16,7 @@
 #' a character string containing standalone R code for producing the plot.
 #'
 #' @examples
-#' \dontrun{
+#'
 #' #Save a variable
 #' myVar <- c(1:10) 
 #' 
@@ -25,7 +25,7 @@
 #' 
 #' #Produce code for plotting a variable
 #' standardVisual(myVar, "MyVar", doEval = FALSE)
-#' }
+#'
 #' @seealso \code{\link{visualize}}, \code{\link{basicVisual}}
 #'
 #' @importFrom ggplot2 qplot geom_bar geom_rect ylab xlab aes_string ggplot aes theme element_blank geom_text 

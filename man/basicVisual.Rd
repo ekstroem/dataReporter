@@ -28,15 +28,15 @@ removed prior to plotting. For character, factor, (haven_)labelled and logical v
 values are removed.
 }
 \examples{
- \dontrun{
+
  #Save a variable
-   myVar <- c(1:10)
+ myVar <- c(1:10)
  #Plot a variable
-   basicVisual(myVar, "MyVar")
+ basicVisual(myVar, "MyVar")
 
  #Produce code for plotting a variable
-   basicVisual(myVar, "MyVar", doEval = FALSE)
- }
+ basicVisual(myVar, "MyVar", doEval = FALSE)
+
 }
 \seealso{
 \code{\link{visualize}}, \code{\link{standardVisual}}
