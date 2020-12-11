@@ -22,7 +22,7 @@
 #'    variableType(varX)
 #'
 #'  #For smartNum variables:
-#'    smartX <- dataReporter:::smartNum(varX)
+#'    smartX <- dataReporter::smartNum(varX)
 #'    class(smartX)
 #'    variableType(smartX)
 #'
