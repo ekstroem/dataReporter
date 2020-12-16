@@ -1,7 +1,13 @@
+#'@importFrom haven as_factor
+dataReporter_as_factor <- function(v) {
+  as_factor(v)
+}
+
+
 # Code from haven but preserved local copy to ensure backwards compatability
 # for old version of labelled class
 # Copied from github on sep 17 2018
-dataReporter_as_factor <- function(x, levels = c("default", "labels", "values", "both"),
+dataReporter_as_factor_old <- function(x, levels = c("default", "labels", "values", "both"),
                                ordered = FALSE, ...) {
   levels <- match.arg(levels)
   label <- attr(x, "label", exact = TRUE)
@@ -38,10 +44,11 @@ dataReporter_as_factor <- function(x, levels = c("default", "labels", "values", 
 
 ## Adding a verbatim copy of the unexported function dataReporter_haven_replace_with
 ## so a note does not pop up when checking the package.
-dataReporter_haven_replace_with <- function(x, from, to) 
+dataReporter_haven_replace_with_old <- function(x, from, to) 
 {
     stopifnot(length(from) == length(to))
-    out <- x
+    #out <- x
+    out <- rep(NA, length(x))
     matches <- match(x, from, incomparables = NA)
 
     if (anyNA(matches)) {
