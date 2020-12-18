@@ -13,7 +13,7 @@
 #' @export
 smartNum <- function(v) {
     oriClass <- class(v)
-    origLabel <- attr(v, "label")
+    origLabel <- attr(v, "label", exact = TRUE)
     origDesc <- attr(v, "shortDescription")
     v <- factor(v)
     attr(v, "label") <- origLabel

@@ -762,6 +762,7 @@ makeDataReport <- function(data, output=NULL, render=TRUE,
       ## List of variables
       writer("# Variable list", outfile = vListConn)
       
+    #  browser()
 
       ## Run through each of the variables in the data frame
       for (idx in index) {
@@ -818,8 +819,10 @@ makeDataReport <- function(data, output=NULL, render=TRUE,
         }
         
         ## use smartNum
+        ## Note: no smartNum on haven_labelled - they inherit from integer/numeric
         if (smartNum & !("fakeLabelled" %in% class(v)) & !userSuppVar & 
-            any(class(v) %in% c("numeric", "integer"))) {
+            any(class(v) %in% c("numeric", "integer")) &
+            !("haven_labelled" %in% class(v))) {
           v <- doSmartNum(v, ...)
           if ("smartNum" %in% class(v)) {
             extraMessages$do <- TRUE
