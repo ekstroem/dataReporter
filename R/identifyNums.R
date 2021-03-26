@@ -47,8 +47,8 @@ identifyNums <- function(v, nVals = 12, ...) {
   
     #note: update to haven made as_factor not work on character variables!
   if ("labelled" %in% class(v)) {
-    v <- as.character(na.omit(dataReporter_as_factor(v)))
-  } else v <- as.character(na.omit(v))
+    v <- na.omit(as.character(dataReporter_as_factor(v)))
+  } else v <- na.omit(as.character(v))
   
   if (length(unique(v)) < nVals) {
     return(checkResult(out))
