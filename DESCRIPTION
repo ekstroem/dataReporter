@@ -1,8 +1,8 @@
 Package: dataReporter
 Type: Package
 Title: Reproducible Data Screening Checks and Report of Possible Errors
-Version: 1.0.0
-Date: 2020-12-10
+Version: 1.0.1
+Date: 2020-10-07
 Authors@R: c(person(given="Anne Helby", family="Petersen", email="ahpe@sund.ku.dk", role=c("aut")),
              person(given="Claus Thorn", family="Ekstrøm", email="ekstrom@sund.ku.dk", role=c("aut", "cre")))
 Description: Data screening is an important first step of any statistical
