@@ -1,8 +1,8 @@
 Package: dataReporter
 Type: Package
 Title: Reproducible Data Screening Checks and Report of Possible Errors
-Version: 1.0.1
-Date: 2020-10-07
+Version: 1.0.4
+Date: 2022-11-24
 Authors@R: c(person(given="Anne Helby", family="Petersen", email="ahpe@sund.ku.dk", role=c("aut")),
              person(given="Claus Thorn", family="Ekstrøm", email="ekstrom@sund.ku.dk", role=c("aut", "cre")))
 Description: Data screening is an important first step of any statistical
@@ -35,7 +35,7 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 License: GPL-2
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.2
 Collate: 
     'aggregateForBarplot.R'
     'aggregateForHistogram.R'

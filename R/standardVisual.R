@@ -28,7 +28,7 @@
 #'
 #' @seealso \code{\link{visualize}}, \code{\link{basicVisual}}
 #'
-#' @importFrom ggplot2 qplot geom_bar geom_rect ylab xlab aes_string ggplot aes theme element_blank geom_text 
+#' @importFrom ggplot2 qplot geom_bar geom_rect ylab xlab ggplot aes theme element_blank geom_text 
 #' @importFrom stats na.omit
 #' @export
 standardVisual <- function(v, vnam, doEval = TRUE) UseMethod("standardVisual")
@@ -133,7 +133,7 @@ standardVisualD <- function(v, vnam, doEval = TRUE) {
 #Input should be on the format of the output of 
 #aggregateForHistogram()
 ggAggHist <- function(data, vnam) {
-  p <- ggplot(data, aes_string(xmin = "xmin", xmax = "xmax", ymin = "ymin", ymax = "ymax")) +
+  p <- ggplot(data, aes(xmin = .data[["xmin"]], xmax = .data[["xmax"]], ymin = .data[["ymin"]], ymax = .data[["ymax"]])) +
     geom_rect() +
     ylab("count") +
     xlab(vnam)
@@ -144,7 +144,7 @@ ggAggHist <- function(data, vnam) {
 #Input should be on the format of the output of 
 #aggregateForBarplot()
 ggAggBarplot <- function(data, vnam) {
-  p <- ggplot(data, aes_string(x = "x", y = "y")) +
+  p <- ggplot(data, aes(x = .data[["x"]], y = .data[["y"]])) +
     geom_bar(stat = "identity") +
     ylab("count") +
     xlab(vnam)
@@ -153,7 +153,7 @@ ggAggBarplot <- function(data, vnam) {
 
 ggEmptyPlot <- function(v, vnam) {
   vClass <- class(v)[1]
-  p <- ggplot(data.frame(x = 1, y = 1), aes_string(x = "x", y = "y")) +
+  p <- ggplot(data.frame(x = 1, y = 1), aes(x = ..data[["x"]], y = .data[["y"]])) +
     geom_text(aes(label = paste("No plot available for variables",
                                 "of class:", vClass))) +
     theme(line = element_blank(),
