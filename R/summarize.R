@@ -136,7 +136,7 @@ defaultCharacterSummaries <- function(remove = NULL, add = NULL) {
 #'
 #' @return A list of function names (as character strings).
 #'
-#' @seealso code{\link{variableType}}, \code{\link{countMissing}}, \code{\link{uniqueValues}},
+#' @seealso \code{\link{variableType}}, \code{\link{countMissing}}, \code{\link{uniqueValues}},
 #' \code{\link{centralValue}}
 #'
 #' @examples
