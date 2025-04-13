@@ -23,7 +23,8 @@ Imports:
     rmarkdown (>= 1.10),
     robustbase (>= 0.93-2),
     stringi,
-    whoami
+    whoami,
+    rlang
 Suggests:
     knitr,
     testthat
