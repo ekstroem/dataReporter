@@ -935,7 +935,7 @@ makeDataReport <- function(data, output=NULL, render=TRUE,
               ##  chunk_name <- paste0("Var-", idx, "-", gsub("[_:. ]", "-", vnam))
               ## Since we are not really needing the specific chunk names with variables we could skip the trailing part
               ## However, might be useful when looking at the rmd.
-             chunk_name <- paste0("Var-", idx, "-", stringi::stri_trans_general(gsub("[_:. ]", "-", vnam), "Latin-ASCII"))
+             chunk_name <- paste0("Var-", idx, "-", gsub("[_:. ']", "-", stringi::stri_trans_general(vnam, "Latin-ASCII")))
 ##              chunk_name <- paste0("Var-", idx)
             
             ## add visualization + summary results to output file
