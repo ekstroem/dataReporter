@@ -28,7 +28,7 @@
 #'
 #' @seealso \code{\link{visualize}}, \code{\link{basicVisual}}
 #'
-#' @importFrom ggplot2 qplot geom_bar geom_rect ylab xlab ggplot aes theme element_blank geom_text 
+#' @importFrom ggplot2 qplot geom_bar geom_rect ylab xlab ggplot aes theme element_blank geom_text coord_flip 
 #' @importFrom stats na.omit
 #' @importFrom rlang .data
 #' @export
@@ -45,16 +45,16 @@ standardVisual.default <- function(v, vnam, doEval = TRUE) {
 }
 
 #' @export
-standardVisual.character <- function(v, vnam, doEval = TRUE) standardVisualCFLB(v, vnam, doEval=doEval)
+standardVisual.character <- function(v, vnam, doEval = TRUE) standardVisualCFB(v, vnam, doEval=doEval)
 
 #' @export
-standardVisual.factor <- function(v, vnam, doEval = TRUE) standardVisualCFLB(v, vnam, doEval=doEval)
+standardVisual.factor <- function(v, vnam, doEval = TRUE) standardVisualCFB(v, vnam, doEval=doEval)
 
 #' @export
-standardVisual.labelled <- function(v, vnam, doEval = TRUE) standardVisualCFLB(dataReporter_as_factor(v), 
+standardVisual.labelled <- function(v, vnam, doEval = TRUE) standardVisualLH(dataReporter_as_factor(v), 
                                                                                vnam, doEval=doEval)
 #' @export
-standardVisual.haven_labelled <- function(v, vnam, doEval = TRUE) standardVisualCFLB(dataReporter_as_factor(v), 
+standardVisual.haven_labelled <- function(v, vnam, doEval = TRUE) standardVisualLH(dataReporter_as_factor(v), 
                                                                                vnam, doEval=doEval)
 
 #' @export
@@ -64,7 +64,7 @@ standardVisual.numeric <- function(v, vnam, doEval = TRUE) standardVisualIN(v, v
 standardVisual.integer <- function(v, vnam, doEval = TRUE) standardVisualIN(v, vnam, doEval=doEval)
 
 #' @export
-standardVisual.logical <- function(v, vnam, doEval = TRUE) standardVisualCFLB(v, vnam, doEval=doEval)
+standardVisual.logical <- function(v, vnam, doEval = TRUE) standardVisualCFB(v, vnam, doEval=doEval)
 
 
 #' @export
@@ -81,8 +81,8 @@ standardVisual <- visualFunction(standardVisual, "Histograms and barplots using 
 
 ##########################################Not exported below#########################################
 
-#character, factor, labelled and logical variables
-standardVisualCFLB <- function(v, vnam, doEval = TRUE) {
+#character, factor and logical variables
+standardVisualCFB <- function(v, vnam, doEval = TRUE) {
   v <- na.omit(v)
   if (identifyNums(v, nVals = 0)$problem) {
     v <- as.numeric(as.character(v))
@@ -96,6 +96,26 @@ standardVisualCFLB <- function(v, vnam, doEval = TRUE) {
   }
   pf <- aggregateForBarplot(v)
   thisCall <- call("ggAggBarplot", data = pf, vnam = vnam)
+  if (doEval) {
+    return(eval(thisCall))
+  } else return(deparse(thisCall))
+}
+
+#labelled and haven.labelled
+standardVisualLH <- function(v, vnam, doEval = TRUE) {
+  v <- na.omit(v)
+  if (identifyNums(v, nVals = 0)$problem) {
+    v <- as.numeric(as.character(v))
+  } else {
+    if (is.factor(v)) {
+      levs <-  escapeRStyle(levels(v))
+      v <- factor(escapeRStyle(v), levels = levs)
+    } else {
+      v <- escapeRStyle(v)
+    }
+  }
+  pf <- aggregateForBarplot(v)
+  thisCall <- call("ggAggBarplotFlip", data = pf, vnam = vnam)
   if (doEval) {
     return(eval(thisCall))
   } else return(deparse(thisCall))
@@ -145,10 +165,29 @@ ggAggHist <- function(data, vnam) {
 #Input should be on the format of the output of 
 #aggregateForBarplot()
 ggAggBarplot <- function(data, vnam) {
+  
+  flip <- length(data$x) > 5
+  
   p <- ggplot(data, aes(x = .data$x, y = .data$y)) +
     geom_bar(stat = "identity") +
     ylab("count") +
     xlab(vnam)
+  
+  if (flip)
+    p <- p + ggplot2::coord_flip()
+
+  p
+}
+
+# flip for labelled and haven.labelled
+ggAggBarplotFlip <- function(data, vnam) {
+  
+  p <- ggplot(data, aes(x = .data$x, y = .data$y)) +
+    geom_bar(stat = "identity") +
+    ylab("count") +
+    xlab(vnam) +
+    ggplot2::coord_flip()
+
   p
 }
 
