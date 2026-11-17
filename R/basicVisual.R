@@ -43,17 +43,17 @@ basicVisual.default <- function(v, vnam, doEval = TRUE) {
 }
   
 #' @export
-basicVisual.character <- function(v, vnam, doEval = TRUE) basicVisualCFLB(v, vnam, doEval=doEval)
+basicVisual.character <- function(v, vnam, doEval = TRUE) basicVisualCFB(v, vnam, doEval=doEval)
 
 #' @export
-basicVisual.factor <- function(v, vnam, doEval = TRUE) basicVisualCFLB(v, vnam, doEval=doEval)
+basicVisual.factor <- function(v, vnam, doEval = TRUE) basicVisualCFB(v, vnam, doEval=doEval)
 
 #' @export
-basicVisual.labelled <- function(v, vnam, doEval = TRUE) basicVisualCFLB(dataReporter_as_factor(v), 
+basicVisual.labelled <- function(v, vnam, doEval = TRUE) basicVisualLH(dataReporter_as_factor(v),
                                                                          vnam, doEval=doEval)
 
 #' @export
-basicVisual.haven_labelled <- function(v, vnam, doEval = TRUE) basicVisualCFLB(dataReporter_as_factor(v), 
+basicVisual.haven_labelled <- function(v, vnam, doEval = TRUE) basicVisualLH(dataReporter_as_factor(v),
                                                                          vnam, doEval=doEval)
 
 #' @export
@@ -63,7 +63,7 @@ basicVisual.numeric <- function(v, vnam, doEval = TRUE) basicVisualIN(v, vnam, d
 basicVisual.integer <- function(v, vnam, doEval = TRUE) basicVisualIN(v, vnam, doEval=doEval)
 
 #' @export
-basicVisual.logical <- function(v, vnam, doEval = TRUE) basicVisualCFLB(v, vnam, doEval=doEval)
+basicVisual.logical <- function(v, vnam, doEval = TRUE) basicVisualCFB(v, vnam, doEval=doEval)
 
 #' @export
 basicVisual.Date <- function(v, vnam, doEval = TRUE) basicVisualD(v, vnam, doEval = doEval)
@@ -81,7 +81,7 @@ basicVisual <- visualFunction(basicVisual, "Histograms and barplots using graphi
 ##character, factor, labelled and logical variables
 #' importFrom stats na.omit
 #' @inheritParams standardVisual
-basicVisualCFLB <- function(v, vnam, doEval = TRUE) {
+basicVisualCFB <- function(v, vnam, doEval = TRUE) {
   v <- na.omit(v)
   if (identifyNums(v, nVals = 0)$problem) {
     v <- factor(as.numeric(as.character(v)))
@@ -95,9 +95,28 @@ basicVisualCFLB <- function(v, vnam, doEval = TRUE) {
     }
   }
   aggrV <- table(v)
-  # Flip when there are more than 5 categories
-  flip <- length(aggrV) > 5
-  thisCall <- call("barplot", height = aggrV, main = vnam, horiz = flip)
+  thisCall <- call("barplot", height = aggrV, main = vnam)
+  if (doEval) {
+    return(eval(thisCall))
+  } else return(deparse(thisCall))
+}
+
+# haven_labelled
+basicVisualLH <- function(v, vnam, doEval = TRUE) {
+  v <- na.omit(v)
+  if (identifyNums(v, nVals = 0)$problem) {
+    v <- factor(as.numeric(as.character(v)))
+  } else {
+    if (is.factor(v)) {
+      levs <-  escapeRStyle(levels(v))
+      v <- factor(escapeRStyle(v), levels = levs)
+    } else {
+      v <- escapeRStyle(v)
+      v <- factor(v)
+    }
+  }
+  aggrV <- table(v)
+  thisCall <- call("barplot", height = aggrV, main = vnam, horiz = TRUE)
   if (doEval) {
     return(eval(thisCall))
   } else return(deparse(thisCall))
